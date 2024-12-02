@@ -24,7 +24,14 @@ def index(request: HttpRequest) -> HttpResponse:
 class TaskListView(generic.ListView):
     model = Task
     paginate_by = 10
-    queryset = Task.objects.perfetch_related("assignees")
+    queryset = Task.objects.filter(is_completed=False).perfetch_related("assignees")
+
+
+class TaskHistoryListView(generic.ListView):
+    model = Task
+    paginate_by = 10
+    context_object_name = "task_history_list"
+    queryset = Task.objects.filter(is_completed=True)
 
 
 class TaskDtailView(generic.DetailView):

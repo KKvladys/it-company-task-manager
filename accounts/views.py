@@ -14,10 +14,15 @@ from accounts.models import Worker
 
 class WorkerListView(generic.ListView):
     model = get_user_model()
-    template_name = "accounts/worker_list.html"
 
 
 class WorkerDetailView(generic.DetailView):
     model = get_user_model()
-    context_object_name = "worker_list"
-    template_name = "accounts/worker_detail.html"
+
+
+class WorkerUpdateView(generic.UpdateView):
+    model = get_user_model()
+
+
+class WorkerDeleteView(generic.DetailView):
+    model = get_user_model()

@@ -25,3 +25,7 @@ class TaskListView(generic.ListView):
     model = Task
     paginate_by = 10
     queryset = Task.objects.perfetch_related("assignees")
+
+
+class TaskDtailView(generic.DetailView):
+    model = Task

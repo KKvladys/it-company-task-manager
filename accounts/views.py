@@ -15,3 +15,8 @@ from accounts.models import Worker
 class WorkerListView(generic.ListView):
     model = get_user_model()
     template_name = "accounts/worker_list.html"
+
+
+class WorkerDetailView(generic.DetailView):
+    model = get_user_model()
+    template_name = "accounts/worker_detail.html"

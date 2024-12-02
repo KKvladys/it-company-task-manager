@@ -19,4 +19,5 @@ class WorkerListView(generic.ListView):
 
 class WorkerDetailView(generic.DetailView):
     model = get_user_model()
+    context_object_name = "worker_list"
     template_name = "accounts/worker_detail.html"

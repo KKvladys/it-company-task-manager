@@ -5,7 +5,7 @@ from django.views import generic
 from tasks.models import Task
 
 
-def index(request: HttpRequest) -> HttpResponse:
+def home(request: HttpRequest) -> HttpResponse:
     num_task = Task.objects.count()
     num_task_urgent = Task.objects.filter(priority="Urgent")
     num_task_high = Task.objects.filter(priority="High")
@@ -18,13 +18,13 @@ def index(request: HttpRequest) -> HttpResponse:
         "num_task_medium": num_task_medium,
         "num_task_low": num_task_low
     }
-    return render(request, "tasks/index.html", context)
+    return render(request, "tasks/home.html", context)
 
 
 class TaskListView(generic.ListView):
     model = Task
     paginate_by = 10
-    queryset = Task.objects.filter(is_completed=False).perfetch_related("assignees")
+    queryset = Task.objects.filter(is_completed=False).prefetch_related("assignees")
 
 
 class TaskHistoryListView(generic.ListView):

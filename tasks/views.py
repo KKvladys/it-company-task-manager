@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+from django.views import generic
 
 from tasks.models import Task
 
@@ -18,3 +19,9 @@ def index(request: HttpRequest) -> HttpResponse:
         "num_task_low": num_task_low
     }
     return render(request, "tasks/index.html", context)
+
+
+class TaskListView(generic.ListView):
+    model = Task
+    paginate_by = 10
+    queryset = Task.objects.perfetch_related("assignees")

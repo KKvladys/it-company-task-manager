@@ -1,6 +1,7 @@
-def main():
-    pass
+from django.urls import path, include
 
+urlpatterns = [
+    path("", include("django.contrib.auth.urls")),
+]
 
-if __name__ == "__main__":
-    main()
+app_name = "accounts"

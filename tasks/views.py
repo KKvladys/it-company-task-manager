@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 
 from tasks.forms import TaskForm, PositionForm, TaskTypeForm
@@ -11,13 +11,12 @@ from tasks.models import Task, Position, TaskType
 
 @login_required(login_url="accounts/login/")
 def home(request: HttpRequest) -> HttpResponse:
-    num_task = Task.objects.count()
-    num_task_urgent = Task.objects.filter(priority="Urgent").count()
-    num_task_high = Task.objects.filter(priority="High").count()
-    num_task_medium = Task.objects.filter(priority="Medium").count()
-    num_task_low = Task.objects.filter(priority="Low").count()
+    tasks = Task.objects.all()
+    num_task_urgent = tasks.filter(priority="Urgent", is_completed=False).count()
+    num_task_high = tasks.filter(priority="High", is_completed=False).count()
+    num_task_medium = tasks.filter(priority="Medium", is_completed=False).count()
+    num_task_low = tasks.filter(priority="Low", is_completed=False).count()
     context = {
-        "num_task": num_task,
         "num_task_urgent": num_task_urgent,
         "num_task_high": num_task_high,
         "num_task_medium": num_task_medium,
@@ -46,6 +45,7 @@ class TaskDtailView(generic.DetailView):
 
 class TaskUpdateView(generic.UpdateView):
     model = Task
+    fields = "__all__"
 
 
 class TaskDeliteView(generic.DeleteView):
@@ -83,3 +83,9 @@ class TaskTypeListView(generic.ListView):
 
     context_object_name = "task_type_list"
     template_name = "tasks/task_type_list.html"
+
+def change_task_status(request: HttpRequest, pk: int) -> HttpResponse:
+    task = get_object_or_404(Task, pk=pk)
+    task.is_completed = not task.is_completed
+    task.save()
+    return redirect(reverse("tasks:task-list"))

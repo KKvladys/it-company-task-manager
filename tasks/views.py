@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -7,6 +9,7 @@ from tasks.forms import TaskForm, PositionForm, TaskTypeForm
 from tasks.models import Task, Position, TaskType
 
 
+@login_required(login_url="accounts/login/")
 def home(request: HttpRequest) -> HttpResponse:
     num_task = Task.objects.count()
     num_task_urgent = Task.objects.filter(priority="Urgent").count()
@@ -23,7 +26,7 @@ def home(request: HttpRequest) -> HttpResponse:
     return render(request, "tasks/home.html", context)
 
 
-class TaskListView(generic.ListView):
+class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     paginate_by = 10
     queryset = Task.objects.filter(is_completed=False).prefetch_related("assignees")
@@ -47,6 +50,7 @@ class TaskUpdateView(generic.UpdateView):
 
 class TaskDeliteView(generic.DeleteView):
     model = Task
+    success_url = reverse_lazy("tasks:task-list")
 
 
 class TaskCreateView(generic.CreateView):
@@ -58,6 +62,10 @@ class TaskCreateView(generic.CreateView):
 class PositionCreateView(generic.CreateView):
     model = Position
     form_class = PositionForm
+    success_url = reverse_lazy("tasks:position-list")
+
+class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Position
     success_url = reverse_lazy("tasks:position-list")
 
 class PositionListView(generic.ListView):

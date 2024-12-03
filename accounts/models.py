@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 from tasks.models import Position
 
@@ -18,6 +19,9 @@ class Worker(AbstractUser):
         ordering = ["first_name", "last_name"]
         verbose_name = "worker"
         verbose_name_plural = "workers"
+
+    def get_absolute_url(self) -> str:
+        return reverse("accounts:worker-detail", kwargs={"pk": self.pk})
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

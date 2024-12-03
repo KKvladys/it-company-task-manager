@@ -15,8 +15,6 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mx-auto">
-        <a href="{% url "tasks:task-create" %}">Create</a>
-
           <div class="row py-lg-7 py-5">
             <table class="table table-striped table-hover">
               <thead class="thead-dark">
@@ -29,9 +27,11 @@
                   <th scope="row">{{ forloop.counter }}</th>
                   <td><a href="{% url "tasks:task-detail" pk=task.id %}">{{ task.name }}</a>
                     <p>{{ task.deadline }}</p>
-                    <p>{{ task.assignees }}</p>
-                    <a href="{% url "tasks:task-delite" pk=task.id%}">Delete</a>
-                  
+                    <p>
+                      {% for worker in task.assignees.all %}
+                      Workers: {{ worker.username }}
+                        {% endfor %}
+                    </p>
                   </td>
 
                 </tr>

@@ -19,10 +19,23 @@
             <p>{{ task.name }}</p>
             <p>{{ task.description }}</p>
             <p>{{ task.deadline }}</p>
-            <p>{{ task.is_completed }}</p>
+          <p>Workers: 
             {% for worker in task.assignees.all %}
-            <p>{{ worker.username}}</p>
+            ({{ worker.first_name}} {{ worker.last_name}})
+              
             {% endfor %}
+          </p>
+          <a class="" href="{% url "tasks:task-change-status" pk=task.id %}">
+                {% if not task.is_completed %}
+                  <span class="btn btn-success">Complete</span>
+                {% else %}
+                  <span class="btn btn-secondary">Solved</span>
+                {% endif %}
+              </a>
+          <p>
+          <a href="{% url "tasks:task-delite" pk=task.id%}"><span class="btn btn-danger">Delete</span></a>
+          <a href="{% url "tasks:task-update" pk=task.id%}"><span class="btn btn-info">Update</span></a>
+          </p>
           </div>
         </div>
       </div>

@@ -4,9 +4,9 @@
       <div class="col-12">
         <nav class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid">
-            <a class="navbar-brand font-weight-bolder ms-sm-3" 
+            <a class="navbar-brand font-weight-bolder ms-sm-3"
                href="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
-              My task manager
+              IT company task manager
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -21,7 +21,7 @@
                   <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="{% url "tasks:task-list" %}">
                     Tasks
                   </a>
-                
+
                 </li>
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="{% url "tasks:task-list-history" %}">
@@ -32,19 +32,19 @@
                   <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="{% url "accounts:worker-list" %}">
                     Workers
                   </a>
-                 
+
                 </li>
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="{% url "tasks:task-type-list" %}">
                     Task Types
                   </a>
-                 
+
                 </li>
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="{% url "tasks:position-list" %}">
                     Positions
                   </a>
-                 
+
                 </li>
                 <li class="nav-item ms-lg-auto">
     <form method="post" action="{% url 'accounts:logout' %}">
@@ -55,7 +55,7 @@
         </button>
     </form>
 </li>
-                
+
               </ul>
             </div>
           </div>

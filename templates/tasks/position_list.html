@@ -15,12 +15,12 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mx-auto">
-        <a class="btn btn-primary btn-block" href="{% url "tasks:position-create" %}">Create</a>
+        <a class="btn btn-success btn-block" href="{% url "tasks:position-create" %}">Create</a>
           <div class="row py-lg-7 py-5">
           <p>Positions list</p>
             {% for position in position_list %}
             <ul>
-              <li>{{ position.name }}   <a class="btn-danger" href="{% url "tasks:position-delete" pk=position.id %}">Delete</a></li> 
+              <li>{{ position.name }}   <a class="btn-form btn-danger" href="{% url "tasks:position-delete" pk=position.id %}">Delete</a></li>
             </ul>
             {% endfor %}
           </div>

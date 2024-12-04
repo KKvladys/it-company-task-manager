@@ -19,7 +19,11 @@
           <div class="row py-lg-7 py-5">
             {% for task_type in task_type_list %}
             <ul>
-              <li>{{ task_type.name }}</li>
+              <li>
+                {{ task_type.name }}
+                <a class="btn-form btn-secondary" href="{% url "tasks:task-type-update" pk=task_type.id %}">Update</a> 
+                <a class="btn-form btn-danger" href="{% url "tasks:task-type-delete" pk=task_type.id %}">Delete</a> 
+              </li>
             </ul>
             {% endfor %}
           </div>

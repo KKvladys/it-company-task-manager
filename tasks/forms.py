@@ -20,7 +20,6 @@ class TaskForm(forms.ModelForm):
         fields = [
             "name",
             "task_type",
-            "is_completed",
             "description",
             "deadline",
             "priority",

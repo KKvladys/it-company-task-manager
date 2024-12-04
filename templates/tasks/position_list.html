@@ -20,7 +20,12 @@
           <p>Positions list</p>
             {% for position in position_list %}
             <ul>
-              <li>{{ position.name }}   <a class="btn-form btn-danger" href="{% url "tasks:position-delete" pk=position.id %}">Delete</a></li>
+              <li>
+                {{ position.name }} 
+                <a class="btn-form btn-secondary" href="{% url "tasks:position-update" pk=position.id %}">Update</a> 
+                <a class="btn-form btn-danger" href="{% url "tasks:position-delete" pk=position.id %}">Delete</a> 
+                
+              </li>
             </ul>
             {% endfor %}
           </div>

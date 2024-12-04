@@ -18,15 +18,13 @@
             <div class="card card-plain">
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder text-center">Sign In</h4>
+                {% if msg %}
+                      {{ msg | safe }}
+                  {% endif %}               
               </div>
               <div class="card-body">
                 <form method="post" action="" role="form">
                   {% csrf_token %}
-                  {% if msg %}
-                    <div class="alert alert-danger" role="alert">
-                      {{ msg }}
-                    </div>
-                  {% endif %}
                   <div class="mb-3 w-100 text-center">
                     {{ form.username }}
                   </div>

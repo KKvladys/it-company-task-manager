@@ -16,7 +16,15 @@
       <div class="row">
         <div class="col-12 mx-auto">
           <div class="row py-lg-7 py-5">
-            <p>{{ task.name }}</p>
+            <p>{{ task.name }}  
+              <span>
+                 {% if not task.is_completed %}
+                  <span class="btn-status btn-warning">In progres</span>
+                {% else %}
+                  <span class="btn-status btn-secondary">Solved</span>
+                {% endif %}
+              </span>
+            </p>
             <p>{{ task.description }}</p>
             <p>{{ task.deadline }}</p>
           <p>Workers: 
@@ -27,9 +35,9 @@
           </p>
           <a class="" href="{% url "tasks:task-change-status" pk=task.id %}">
                 {% if not task.is_completed %}
-                  <span class="btn btn-success">Complete</span>
+                  <span class="btn btn-success">Mark as solved</span>
                 {% else %}
-                  <span class="btn btn-secondary">Solved</span>
+                  <span class="btn btn-secondary">Mark as not solved</span>
                 {% endif %}
               </a>
           <p>

@@ -36,3 +36,6 @@ class Task(models.Model):
         blank=True
     )
     assignees = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="tasks")
+
+    def __str__(self):
+        return self.name

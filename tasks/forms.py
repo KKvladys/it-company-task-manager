@@ -29,7 +29,7 @@ class TaskForm(forms.ModelForm):
 
 
 class TaskTypeForm(forms.ModelForm):
-    name = forms.CharField(label=("Name"))
+    name = forms.CharField(label=("Name"), required=True)
 
     class Meta:
         model = TaskType

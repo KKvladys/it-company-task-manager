@@ -59,18 +59,28 @@ class TaskCreateView(generic.CreateView):
     success_url = reverse_lazy("tasks:task-list")
 
 
+class PositionListView(generic.ListView):
+    model = Position
+
+
 class PositionCreateView(generic.CreateView):
     model = Position
     form_class = PositionForm
     success_url = reverse_lazy("tasks:position-list")
 
+
 class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Position
     success_url = reverse_lazy("tasks:position-list")
 
-class PositionListView(generic.ListView):
+
+class PositionDetailView(generic.DetailView):
     model = Position
 
+
+class PositionUpdateView(generic.UpdateView):
+    model = Position
+    fields = ["name"]
 
 class TaskTypeCreateView(generic.CreateView):
     model = TaskType
@@ -78,11 +88,13 @@ class TaskTypeCreateView(generic.CreateView):
     template_name = "tasks/task_type_form.html"
     success_url = reverse_lazy("tasks:task-type-list")
 
+
 class TaskTypeListView(generic.ListView):
     model = TaskType
 
     context_object_name = "task_type_list"
     template_name = "tasks/task_type_list.html"
+
 
 def change_task_status(request: HttpRequest, pk: int) -> HttpResponse:
     task = get_object_or_404(Task, pk=pk)

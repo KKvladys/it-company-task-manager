@@ -31,7 +31,7 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     queryset = Task.objects.filter(is_completed=False).prefetch_related("assignees")
 
 
-class TaskHistoryListView(generic.ListView):
+class TaskHistoryListView(LoginRequiredMixin, generic.ListView):
     model = Task
     paginate_by = 10
     context_object_name = "task_history_list"
@@ -39,31 +39,31 @@ class TaskHistoryListView(generic.ListView):
     template_name = "tasks/task_history_list.html"
 
 
-class TaskDtailView(generic.DetailView):
+class TaskDtailView(LoginRequiredMixin, generic.DetailView):
     model = Task
 
 
-class TaskUpdateView(generic.UpdateView):
+class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task
     fields = "__all__"
 
 
-class TaskDeliteView(generic.DeleteView):
+class TaskDeliteView(LoginRequiredMixin, generic.DeleteView):
     model = Task
     success_url = reverse_lazy("tasks:task-list")
 
 
-class TaskCreateView(generic.CreateView):
+class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
     form_class = TaskForm
     success_url = reverse_lazy("tasks:task-list")
 
 
-class PositionListView(generic.ListView):
+class PositionListView(LoginRequiredMixin, generic.ListView):
     model = Position
 
 
-class PositionCreateView(generic.CreateView):
+class PositionCreateView(LoginRequiredMixin, generic.CreateView):
     model = Position
     form_class = PositionForm
     success_url = reverse_lazy("tasks:position-list")
@@ -74,38 +74,38 @@ class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("tasks:position-list")
 
 
-class PositionDetailView(generic.DetailView):
+class PositionDetailView(LoginRequiredMixin, generic.DetailView):
     model = Position
 
 
-class PositionUpdateView(generic.UpdateView):
+class PositionUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Position
     fields = ["name"]
 
 
-class TaskTypeListView(generic.ListView):
+class TaskTypeListView(LoginRequiredMixin, generic.ListView):
     model = TaskType
     context_object_name = "task_type_list"
     template_name = "tasks/task_type_list.html"
 
 
-class TaskTypeCreateView(generic.CreateView):
+class TaskTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = TaskType
     form_class = TaskTypeForm
     template_name = "tasks/task_type_form.html"
     success_url = reverse_lazy("tasks:task-type-list")
 
 
-class TaskTypeUpdateView(generic.UpdateView):
+class TaskTypeUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = TaskType
     fields = ["name"]
 
 
-class TaskTypeDeleteView(generic.DeleteView):
+class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = TaskType
 
 
-class TaskTypeDetailView(generic.DetailView):
+class TaskTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = TaskType
 
 

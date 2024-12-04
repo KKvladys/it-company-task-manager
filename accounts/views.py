@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
@@ -7,27 +8,22 @@ from accounts.forms import RegisterForm, LoginForm, WorkerUpdateForm
 from accounts.models import Worker
 
 User = get_user_model()
-class WorkerCreateView(generic.CreateView):
-    model = Worker
-    form_class = RegisterForm
-    template_name = "registration/register.html"
 
-
-class WorkerListView(generic.ListView):
+class WorkerListView(LoginRequiredMixin, generic.ListView):
     model = get_user_model()
 
 
-class WorkerDetailView(generic.DetailView):
+class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     model = get_user_model()
 
 
-class WorkerUpdateView(generic.UpdateView):
+class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = get_user_model()
     form_class = WorkerUpdateForm
     success_url = reverse_lazy("accounts:worker-list")
 
 
-class WorkerDeleteView(generic.DetailView):
+class WorkerDeleteView(LoginRequiredMixin, generic.DetailView):
     model = get_user_model()
 
 

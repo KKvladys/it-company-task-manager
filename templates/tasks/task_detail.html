@@ -33,7 +33,7 @@
                 {% endif %}
               </a>
           <p>
-          <a href="{% url "tasks:task-delite" pk=task.id%}"><span class="btn btn-danger">Delete</span></a>
+          <a href="{% url "tasks:task-delete" pk=task.id%}"><span class="btn btn-danger">Delete</span></a>
           <a href="{% url "tasks:task-update" pk=task.id%}"><span class="btn btn-info">Update</span></a>
           </p>
           </div>

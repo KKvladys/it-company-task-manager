@@ -7,4 +7,4 @@ from accounts.models import Worker
 # Register your models here.
 @admin.register(Worker)
 class WorkerAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("email",)
+    list_display = UserAdmin.list_display + ("position",)

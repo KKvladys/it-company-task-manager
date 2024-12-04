@@ -23,7 +23,7 @@ class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("accounts:worker-list")
 
 
-class WorkerDeleteView(LoginRequiredMixin, generic.DetailView):
+class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = get_user_model()
 
 

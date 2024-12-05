@@ -8088,6 +8088,9 @@ fieldset:disabled .btn {
 .text-dark {
     color: #252f40 !important;
 }
+.text-home{
+    font-size: 50px;
+}
 
 .text-white {
     color: #fff !important;

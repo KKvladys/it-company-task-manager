@@ -51,5 +51,12 @@ Run the development server:
 ```shell
 python manage.py runserver
 ```
+## Environment Variables
 
+This project uses environment variables for configuration. A template file `.env.sample` is provided to guide you in setting up these variables. Before running the project, create a `.env` file based on the template and provide the required values.
 
+### Setting Up Environment Variables
+1. Copy the `.env.sample` file to create your `.env` file:
+
+   ```bash
+   cp .env.sample .env

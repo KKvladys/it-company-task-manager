@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends "layouts/base.html" %}
 
 {% block title %} Presentation {% endblock title %}
 
@@ -10,11 +10,11 @@
 {% block content %}
 
   <header class="header-2">
-    <div class="page-header section-height-75 relative" style="background-image: url('{{ ASSETS_ROOT }}/img/home.png')">
+    <div class="page-header section-height-85 relative" style="background-image: url('{{ ASSETS_ROOT }}/img/home2.png')">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 text-center mx-auto">
-            <h1 class="text-dark text-home pt-3 mt-n5">
+            <h1 class="text-dark text-home mt-n5">
               IT company task manager
             </h1>
             <p class="lead text-white mt-3">
@@ -46,32 +46,30 @@
       <div class="row">
         <div class="col-lg-8 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur">
           <div class="row">
-
-
             <div class="col-md-3">
               <div class="p-3 text-center">
-                <h1 style="color:red">{{ num_task_urgent }}</h1>
+                <h1 style="color:red" class="home-stat">{{ num_task_urgent }}</h1>
                 <h5 class="mt-3">Urgent priority tasks</h5>
               </div>
               <hr class="vertical dark">
             </div>
             <div class="col-md-3">
               <div class="p-3 text-center">
-                <h1 style="color:orange">{{ num_task_high }}</h1>
+                <h1 style="color:orange" class="home-stat">{{ num_task_high }}</h1>
                 <h5 class="mt-3">High priority tasks</h5>
               </div>
               <hr class="vertical dark">
             </div>
             <div class="col-md-3">
               <div class="p-3 text-center">
-                <h1 style="color: yellow">{{ num_task_medium }}</h1>
+                <h1 style="color: yellow" class="home-stat">{{ num_task_medium }}</h1>
                 <h5 class="mt-3">Medium priority tasks</h5>
               </div>
               <hr class="vertical dark">
             </div>
             <div class="col-md-3">
               <div class="p-3 text-center">
-                <h1 style="color: green">{{ num_task_low }}</h1>
+                <h1 style="color: limegreen" class="home-stat">{{ num_task_low }}</h1>
                 <h5 class="mt-3">Low priority tasks</h5>
               </div>
             </div>

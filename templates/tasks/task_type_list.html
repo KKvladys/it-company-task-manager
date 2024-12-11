@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends "layouts/base.html" %}
 
 {% block title %} Author {% endblock title %}
 
@@ -15,14 +15,14 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mx-auto">
-        <a class="btn btn-success btn-block" href="{% url "tasks:task-type-create" %}">Create</a>
+        <a class="btn btn-success btn-block" href="{% url 'tasks:task-type-create' %}">Create</a>
           <div class="row py-lg-7 py-5">
             {% for task_type in task_type_list %}
             <ul>
               <li>
                 {{ task_type.name }}
-                <a class="btn-form btn-secondary" href="{% url "tasks:task-type-update" pk=task_type.id %}">Update</a> 
-                <a class="btn-form btn-danger" href="{% url "tasks:task-type-delete" pk=task_type.id %}">Delete</a> 
+                <a class="btn-form btn-secondary" href="{% url 'tasks:task-type-update' pk=task_type.id %}">Update</a> 
+                <a class="btn-form btn-danger" href="{% url 'tasks:task-type-delete' pk=task_type.id %}">Delete</a> 
               </li>
             </ul>
             {% endfor %}

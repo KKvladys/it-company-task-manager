@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends "layouts/base.html" %}
 
 {% block title %} Sign IN {% endblock title %}
 
@@ -45,7 +45,7 @@
               <div class="card-footer text-center pt-0 px-lg-2 px-1">
                 <p class="mb-4 text-sm mx-auto">
                   Don't have an account?
-                  <a href="{% url "accounts:register" %}" class="text-danger text-gradient font-weight-bold">Sign UP</a>
+                  <a href="{% url 'accounts:register' %}" class="text-danger text-gradient font-weight-bold">Sign UP</a>
                 </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends "layouts/base.html" %}
 
 {% block title %} Author {% endblock title %}
 
@@ -30,7 +30,7 @@
               {% for worker in worker_list %}
                 <tr>
                   <th scope="row">{{ forloop.counter }}</th>
-                  <td><a href="{% url "accounts:worker-detail" pk=worker.id %}">{{ worker.username }}</a></td>
+                  <td><a href="{% url 'accounts:worker-detail' pk=worker.id %}">{{ worker.username }}</a></td>
                   <td>{{ worker.first_name }} {{ worker.last_name }}</td>
                   <td>{{ worker.email }}</td>
                   <td>{{ worker.position }}</td>

@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends "layouts/base.html" %}
 
 {% block title %} Author {% endblock title %}
 
@@ -33,7 +33,7 @@
               
             {% endfor %}
           </p>
-          <a class="" href="{% url "tasks:task-change-status" pk=task.id %}">
+          <a class="" href="{% url 'tasks:task-change-status' pk=task.id %}">
                 {% if not task.is_completed %}
                   <span class="btn btn-success">Mark as solved</span>
                 {% else %}
@@ -41,8 +41,8 @@
                 {% endif %}
               </a>
           <p>
-          <a href="{% url "tasks:task-delete" pk=task.id%}"><span class="btn btn-danger">Delete</span></a>
-          <a href="{% url "tasks:task-update" pk=task.id%}"><span class="btn btn-info">Update</span></a>
+          <a href="{% url 'tasks:task-delete' pk=task.id%}"><span class="btn btn-danger">Delete</span></a>
+          <a href="{% url 'tasks:task-update' pk=task.id%}"><span class="btn btn-info">Update</span></a>
           </p>
           </div>
         </div>

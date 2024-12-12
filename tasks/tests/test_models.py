@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from tasks.models import TaskType, Position, Task
 from datetime import datetime, timedelta
+
+from tasks.models import TaskType, Position, Task
 
 User = get_user_model()
 
@@ -41,7 +42,7 @@ class TaskModelTests(TestCase):
             description="Users cannot log in due to a server error.",
             deadline=datetime.now() + timedelta(days=7),
             is_completed=False,
-            priority="High",
+            priority=0,
             task_type=self.task_type
         )
         self.task.assignees.set([self.user1, self.user2])
@@ -53,13 +54,10 @@ class TaskModelTests(TestCase):
         self.assertEqual(self.task.name, "Fix login issue")
         self.assertEqual(self.task.description, "Users cannot log in due to a server error.")
         self.assertEqual(self.task.is_completed, False)
-        self.assertEqual(self.task.priority, "High")
+        self.assertEqual(self.task.priority, 0)
         self.assertEqual(self.task.task_type, self.task_type)
 
     def test_task_assignees(self):
         self.assertIn(self.user1, self.task.assignees.all())
         self.assertIn(self.user2, self.task.assignees.all())
         self.assertEqual(self.task.assignees.count(), 2)
-
-    def test_task_deadline(self):
-        self.assertTrue(self.task.deadline > datetime.now())

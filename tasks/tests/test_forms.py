@@ -1,9 +1,10 @@
 from django.test import TestCase
-from tasks.forms import TaskForm, TaskTypeForm, PositionForm
-from tasks.models import TaskType, Position, Task
 from django.contrib.auth import get_user_model
-from datetime import datetime, timedelta
+from datetime import timedelta
 from django.utils.timezone import now
+
+from tasks.forms import TaskForm, TaskTypeForm, PositionForm
+from tasks.models import TaskType
 
 User = get_user_model()
 
@@ -28,7 +29,7 @@ class TaskFormTests(TestCase):
             "is_completed": False,
             "description": "Fix the login bug for all users.",
             "deadline": (now() + timedelta(days=7)).date(),
-            "priority": "High",
+            "priority": 0,
             "assignees": [self.user1.pk, self.user2.pk]
         }
 

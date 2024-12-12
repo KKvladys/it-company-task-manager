@@ -1972,6 +1972,14 @@ progress {
     border-color: #e9ecef;
 }
 
+
+
+.table-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+     backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 8px;
+}
 .table > :not(caption) > * > * {
     padding: 0.5rem 0.5rem;
     background-color: var(--bs-table-bg);
@@ -8089,8 +8097,35 @@ fieldset:disabled .btn {
     color: #252f40 !important;
 }
 .text-home{
-    font-size: 50px;
+    /*font-size: 80px;*/
+    color: #000!important;
+    font: small-caps bold 80px/1 sans-serif;
+    text-shadow:
+        2px 2px 0 #008fa1,  /* Тень вправо-вниз */
+        -2px 2px 0 #008fa1, /* Тень влево-вниз */
+        2px -2px 0 #008fa1, /* Тень вправо-вверх */
+        -2px -2px 0 #008fa1; /* Тень влево-вверх */
 }
+
+.btn-create{
+    float: right;
+}
+
+.home-stat{
+    text-shadow:
+        0.5px 0.5px 0 #000,  /* Тень вправо-вниз */
+        -0.5px 0.5px 0 #000, /* Тень влево-вниз */
+        0.5px -0.5px 0 #000, /* Тень вправо-вверх */
+        -0.5px -0.5px 0 #000; /* Тень влево-вверх */
+}
+
+.navbar-logo {
+  display: block;
+  width: 100px; /* Ширина логотипа */
+  height: 50px; /* Высота логотипа */
+  background-size: contain;
+}
+
 
 .text-white {
     color: #fff !important;
@@ -21109,4 +21144,106 @@ h1 {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+
+.badge {
+    border-radius: 0;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0.375rem 0.5625rem;
+    font-weight: normal;
+    color: black;
+    width: 60px;
+    display: inline-block;
+    text-align: center;
+}
+
+.badge-urgent{
+    background-color: red;
+}
+.badge-high{
+    background-color: orange;
+}
+.badge-medium{
+    background-color: yellow;
+}
+.badge-low{
+    background-color: green;
+}
+
+/*nav*/
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon,
+.navbar-scroll .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon,
+.navbar-scrolled .navbar-brand {
+  color: #fff;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scroll,
+.navbar-scrolled {
+  background-color: #cbbcb1;
+}
+
+.mask-custom {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, .15);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  letter-spacing: 3px;
+}
+
+
+/*buttons*/
+
+.btn-sec {
+	border-radius: 4px;
+	font-size: 13px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 5px;
+	border: none;
+	letter-spacing: .02rem;
+	transition: .3s all ease;
+	position: relative;
+
+	transform: skew(-21deg);
+  & > span { display: inline-block; transform: skew(21deg); } /* Un-skew the text */
+
+	&.btn-sm {
+		font-size: 12px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	&.btn-lg {
+		font-size: 16px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	&:hover, &:active, &:focus {
+		box-shadow: none;
+		box-shadow: -14px 14px 30px 0 !important;
+	}
+}
+
+.btn-blue-gray {
+	background-color: #3f4d71;
+	color: white;
+	&:hover, &:focus {
+		color: white;
+	}
 }

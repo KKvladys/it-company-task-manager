@@ -1,7 +1,13 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path, include
 
-from accounts.views import WorkerListView, WorkerDetailView, WorkerUpdateView, WorkerDeleteView, register_user
+from accounts.views import (
+    WorkerListView,
+    WorkerDetailView,
+    WorkerUpdateView,
+    WorkerDeleteView,
+    register_user
+)
 
 app_name = "accounts"
 urlpatterns = [

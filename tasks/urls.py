@@ -2,9 +2,8 @@ from django.urls import path
 
 from tasks import views
 
-
 urlpatterns = [
-    path("",  views.home, name="home"),
+    path("", views.home, name="home"),
     path("tasks/", views.TaskListView.as_view(), name="task-list"),
     path("tasks/create/", views.TaskCreateView.as_view(), name="task-create"),
     path("<int:pk>/tasks/", views.TaskDtailView.as_view(), name="task-detail"),
@@ -16,11 +15,11 @@ urlpatterns = [
     path("positions/<int:pk>/delete", views.PositionDeleteView.as_view(), name="position-delete"),
     path("positions/<int:pk>/detail/", views.PositionDetailView.as_view(), name="position-detail"),
     path("positions/<int:pk>/update/", views.PositionUpdateView.as_view(), name="position-update"),
-    path("task-types/", views.TaskTypeListView.as_view(),name="task-type-list"),
-    path("task-types/create/", views.TaskTypeCreateView.as_view(),name="task-type-create"),
-    path("task-types/<int:pk>/update/", views.TaskTypeUpdateView.as_view(),name="task-type-update"),
-    path("task-types/<int:pk>/delete/", views.TaskTypeDeleteView.as_view(),name="task-type-delete"),
-    path("task-types/<int:pk>/detail/", views.TaskTypeDetailView.as_view(),name="task-type-detail"),
+    path("task-types/", views.TaskTypeListView.as_view(), name="task-type-list"),
+    path("task-types/create/", views.TaskTypeCreateView.as_view(), name="task-type-create"),
+    path("task-types/<int:pk>/update/", views.TaskTypeUpdateView.as_view(), name="task-type-update"),
+    path("task-types/<int:pk>/delete/", views.TaskTypeDeleteView.as_view(), name="task-type-delete"),
+    path("task-types/<int:pk>/detail/", views.TaskTypeDetailView.as_view(), name="task-type-detail"),
     path("tasks/history/", views.TaskHistoryListView.as_view(), name="task-list-history"),
 
 ]

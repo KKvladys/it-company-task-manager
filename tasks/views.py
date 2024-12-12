@@ -12,10 +12,10 @@ from tasks.models import Task, Position, TaskType
 @login_required(login_url="accounts/login/")
 def home(request: HttpRequest) -> HttpResponse:
     tasks = Task.objects.all()
-    num_task_urgent = tasks.filter(priority="Urgent", is_completed=False).count()
-    num_task_high = tasks.filter(priority="High", is_completed=False).count()
-    num_task_medium = tasks.filter(priority="Medium", is_completed=False).count()
-    num_task_low = tasks.filter(priority="Low", is_completed=False).count()
+    num_task_urgent = tasks.filter(priority="0", is_completed=False).count()
+    num_task_high = tasks.filter(priority="1", is_completed=False).count()
+    num_task_medium = tasks.filter(priority="2", is_completed=False).count()
+    num_task_low = tasks.filter(priority="3", is_completed=False).count()
     context = {
         "num_task_urgent": num_task_urgent,
         "num_task_high": num_task_high,
@@ -108,6 +108,7 @@ class TaskTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = TaskType
     context_object_name = "task_type"
     template_name = "tasks/task_type_confirm_delete.html"
+    success_url = reverse_lazy("tasks:task-type-list")
 
 
 class TaskTypeDetailView(LoginRequiredMixin, generic.DetailView):

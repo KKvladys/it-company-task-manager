@@ -1,6 +1,5 @@
 from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
-import os
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 

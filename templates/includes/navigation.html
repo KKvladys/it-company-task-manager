@@ -48,11 +48,13 @@
       </ul>
       <ul class="navbar-nav d-flex flex-row">
         <li class="nav-item me-3 me-lg-0">
-          <button class="btn-sec mb-3 mr-3 btn-blue-gray" href="accounts:logout">
-            <span>Logout</span>
-          </button>
+          <form method="post" action="/accounts/logout/" class="d-flex align-items-center">
+            {% csrf_token %}
+            <button class="btn-sec mb-3 mr-3 btn-blue-gray" href="{% url 'accounts:logout' %}">
+              <span>Logout</span>
+            </button>
+          </form>
         </li>
-     
       </ul>
     </div>
   </div>

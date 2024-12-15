@@ -1,15 +1,7 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Sign IN {% endblock title %}
-
-<!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
-
-{% block body_class %} sign-in-illustration {% endblock body_class %}
 
 {% block content %}
-
-
   <section>
     <div class="page-header section-height-100 d-flex align-items-center">
       <div class="container">
@@ -19,8 +11,8 @@
               <div class="card-header pb-0 text-left">
                 <h4 class="font-weight-bolder text-center">Sign In</h4>
                 {% if msg %}
-                      {{ msg | safe }}
-                  {% endif %}               
+                  {{ msg | safe }}
+                {% endif %}
               </div>
               <div class="card-body">
                 <form method="post" action="" role="form">
@@ -56,10 +48,3 @@
   </section>
 
 {% endblock content %}
-
-<!-- Specific JS goes HERE -->
-{% block javascripts %}
-
-  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
-
-{% endblock javascripts %}

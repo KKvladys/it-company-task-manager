@@ -1,45 +1,72 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Author {% endblock title %}
-
-<!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
-
-{% block body_class %} blog-author bg-gray-100 {% endblock body_class %}
 
 {% block content %}
 
-  {% include "includes/navigation.html" %}
-
-  <section class="py-sm-7 py-5 position-relative">
-    <div class="container">
+  <section class="py-sm-7 py-5 position-relative" style="background-color: lightgray">
+    <div class="container mt-2">
+      <div class="card card-block mb-2 text-center">
+        <h4 class="">Positions in company</h4>
+      </div>
       <div class="row">
-        <div class="col-12 mx-auto">
-        <a class="btn btn-success btn-block" href="{% url 'tasks:position-create' %}">Create</a>
-          <div class="row py-lg-7 py-5">
-          <p>Positions list</p>
-            {% for position in position_list %}
-            <ul>
-              <li>
-                {{ position.name }} 
-                <a class="btn-form btn-secondary" href="{% url 'tasks:position-update' pk=position.id %}">Update</a> 
-                <a class="btn-form btn-danger" href="{% url 'tasks:position-delete' pk=position.id %}">Delete</a> 
-                
-              </li>
-            </ul>
-            {% endfor %}
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/software-engineer.jpg" alt="Photo of sunset">
+            <h5 class="card-title mt-3 mb-3">Software Engineer</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/data-scientist.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">Data Scientist</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/product-manager.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">Product Manager</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/designer.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">UI/UX Designer</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/dev-ops.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">DevOps Engineer</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/fron-dev.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">Front-end Developer</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/project-namager.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">Project management</h5>
+            <p class="card-text"></p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="card card-block">
+            <img src="{{ ASSETS_ROOT }}/img/net-eng.jpg" alt="Photo of sunset">
+            <h5 class="card-title  mt-3 mb-3">Network Engineer</h5>
+            <p class="card-text"></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-
 {% endblock content %}
-
-<!-- Specific JS goes HERE -->
-{% block javascripts %}
-
-  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
-
-{% endblock javascripts %}

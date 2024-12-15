@@ -1,56 +1,64 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Author {% endblock title %}
-
-<!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
-
-{% block body_class %} blog-author bg-gray-100 {% endblock body_class %}
-
 {% block content %}
-
-  {% include "includes/navigation.html" %}
-
-  <section class="py-sm-7 py-5 position-relative">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 mx-auto">
-          <div class="row py-lg-7 py-5">
-            <div class="col-lg-3 col-md-5 position-relative my-auto">
-              <img class="img border-radius-lg max-width-200 w-100 position-relative z-index-2" src="{{ ASSETS_ROOT }}/img/unk.jpg">
-            </div>
-            <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mt-sm-0 mt-4">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <h4 class="mb-0">{{ worker.username }}  <a class="btn-form btn-primary" href="{% url 'accounts:worker-update' pk=worker.id %}">Update</a></h4>
-              </div>
-              <div class="row mb-4">
-                <div class="col-auto">
-                  <span>Solved tasks</span>
-                  <span class="h6">0</span>
+  <section class="py-sm-7 py-5 position-relative" style=" background: linear-gradient(to right, #ee5a6f, #f29263);">
+    <div class="page-content page-container" id="page-content">
+      <div class="padding">
+        <div class="row container d-flex justify-content-center">
+          <div class="col-xl-6 col-md-12">
+            <div class="card user-card-full">
+              <div class="row m-l-0 m-r-0">
+                <div class="col-sm-4 bg-c-lite-green user-profile">
+                  <div class="card-block text-center text-white">
+                    <div class="m-b-25">
+                      <img src="{{ ASSETS_ROOT }}/img/unk.jpg" class="img-radius"
+                           alt="User-Profile-Image">
+                    </div>
+                    <h6 class="f-w-600">
+                      {{ worker.first_name }}
+                      {{ worker.last_name }}
+                    </h6>
+                    <p>{{ worker.position }}</p>
+                    <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                  </div>
                 </div>
-                <div class="col-auto">
-                  <span>Position</span>
-                  <span class="h6">{{ worker.position }}</span>
+                <div class="col-sm-8">
+                  <div class="card-block">
+                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">
+                      Information
+                      <a class="btn-form btn-secondary btn-create" href="{% url 'accounts:worker-update' pk=worker.id %}">
+                        Update
+                      </a>
+                    </h6>
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <p class="m-b-10 f-w-600">Username</p>
+                        <h6 class="text-muted f-w-400">{{ worker.username }}</h6>
+                      </div>
+                      <div class="col-sm-6">
+                        <p class="m-b-10 f-w-600">Email</p>
+                        <h6 class="text-muted f-w-400">{{ worker.email }}</h6>
+                      </div>
+
+                    </div>
+
+                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <p class="m-b-10 f-w-600">Solved tasks</p>
+                        <h6 class="text-muted f-w-400">{{ solved_tasks_count }}</h6>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="row mb-4">
-                <p>{{ worker.first_name }}</p>
-                <p>{{ worker.last_name }}</p>
-                
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    </div>
   </section>
-  
 
 {% endblock content %}
-
-<!-- Specific JS goes HERE --> 
-{% block javascripts %}
-
-  <script src="{{ ASSETS_ROOT }}/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>
-
-{% endblock javascripts %}

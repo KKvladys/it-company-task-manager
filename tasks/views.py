@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 
-from tasks.forms import TaskForm, PositionForm, TaskTypeForm
+from tasks.forms import TaskForm, PositionForm, TaskTypeForm, TaskSearchForm
 from tasks.models import Task, Position, TaskType
 
 
@@ -29,6 +29,21 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     paginate_by = 10
     queryset = Task.objects.filter(is_completed=False).prefetch_related("assignees")
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(TaskListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+
+        context["search_form"] = TaskSearchForm(initial={"name": name})
+        return context
+
+    def get_queryset(self):
+        name = self.request.GET.get("name")
+
+        if name:
+            return self.queryset.filter(name__icontains=name)
+
+        return self.queryset
 
 
 class TaskHistoryListView(LoginRequiredMixin, generic.ListView):

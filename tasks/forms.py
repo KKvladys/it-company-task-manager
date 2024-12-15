@@ -14,7 +14,6 @@ class TaskForm(forms.ModelForm):
         label="Deadline",
     )
 
-
     class Meta:
         model = Task
         fields = [
@@ -43,3 +42,14 @@ class PositionForm(forms.ModelForm):
         fields = ["name"]
 
 
+class TaskSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by name"
+            }
+        )
+    )

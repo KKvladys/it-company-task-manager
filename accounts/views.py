@@ -16,6 +16,13 @@ class WorkerListView(LoginRequiredMixin, generic.ListView):
 class WorkerDetailView(LoginRequiredMixin, generic.DetailView):
     model = get_user_model()
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.get_object()
+        solved_tasks_count = user.tasks.filter(is_completed=True).count()
+        context["solved_tasks_count"] = solved_tasks_count
+        return context
+
 
 class WorkerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = get_user_model()

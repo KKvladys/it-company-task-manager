@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from tasks.models import TaskType, Position
+from tasks.models import TaskType, Position, Task
 
-# Register your models here.
 
 admin.site.register(TaskType)
 admin.site.register(Position)
+admin.site.register(Task)

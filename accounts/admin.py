@@ -8,3 +8,4 @@ from accounts.models import Worker
 @admin.register(Worker)
 class WorkerAdmin(UserAdmin):
     list_display = UserAdmin.list_display + ("position",)
+    

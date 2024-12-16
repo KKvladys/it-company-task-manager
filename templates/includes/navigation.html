@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+  <div class="container">
+    <!-- Logo -->
+    <a href="{% url 'tasks:home' %}">
+      <img class="navbar-logo" src="{{ ASSETS_ROOT }}/img/logo-nav.jpg" alt="Logo">
+    </a>
+    <!-- Burger menu button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <!-- Home Link -->
+        <li class="nav-item">
+          <a class="nav-link ps-2 d-flex justify-content-between align-items-center" href="{% url 'tasks:home' %}">
+            Home
+          </a>
+        </li>
+
+        <!-- Dropdown for Tasks -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="tasksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tasks
+             <i class="fas fa-chevron-down ms-2"></i> 
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="tasksDropdown">
+            <li>
+              <a class="dropdown-item" href="{% url 'tasks:task-list' %}">Task List</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'tasks:task-list-history' %}">Task History</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'tasks:task-type-list' %}">Task Types</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Dropdown for Workers -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="workersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Workers
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="workersDropdown">
+            <li>
+              <a class="dropdown-item" href="{% url 'accounts:worker-list' %}">Worker List</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'tasks:position-list' %}">Positions</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- User Info and Logout -->
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item">
+          <p class="nav-link ps-2 d-flex justify-content-between align-items-center">
+            {{ user.username }}
+          </p>
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <form method="post" action="{% url 'accounts:logout' %}" class="d-flex align-items-center">
+            {% csrf_token %}
+            <button class="btn-sec mb-3 mr-3 btn-blue-gray">
+              <span>Logout</span>
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

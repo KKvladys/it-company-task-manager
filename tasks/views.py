@@ -20,7 +20,7 @@ def home(request: HttpRequest) -> HttpResponse:
         "num_task_urgent": num_task_urgent,
         "num_task_high": num_task_high,
         "num_task_medium": num_task_medium,
-        "num_task_low": num_task_low
+        "num_task_low": num_task_low,
     }
     return render(request, "tasks/home.html", context)
 
@@ -28,7 +28,6 @@ def home(request: HttpRequest) -> HttpResponse:
 class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
     paginate_by = 10
-    queryset = Task.objects.filter(is_completed=False).prefetch_related("assignees")
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TaskListView, self).get_context_data(**kwargs)
@@ -38,12 +37,18 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
         return context
 
     def get_queryset(self):
+        queryset = (
+            Task.objects.filter(is_completed=False)
+            .select_related("task_type")
+            .prefetch_related("assignees")
+        )
+
         name = self.request.GET.get("name")
 
         if name:
-            return self.queryset.filter(name__icontains=name)
+            return queryset.filter(name__icontains=name)
 
-        return self.queryset
+        return queryset
 
 
 class TaskHistoryListView(LoginRequiredMixin, generic.ListView):

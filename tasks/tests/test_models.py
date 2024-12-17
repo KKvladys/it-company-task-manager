@@ -27,14 +27,10 @@ class TaskModelTests(TestCase):
     def setUp(self):
         self.task_type = TaskType.objects.create(name="Bug Fixing")
         self.user1 = User.objects.create_user(
-            username="user1",
-            password="password123",
-            email="user1@example.com"
+            username="user1", password="password123", email="user1@example.com"
         )
         self.user2 = User.objects.create_user(
-            username="user2",
-            password="password123",
-            email="user2@example.com"
+            username="user2", password="password123", email="user2@example.com"
         )
 
         self.task = Task.objects.create(
@@ -43,7 +39,7 @@ class TaskModelTests(TestCase):
             deadline=datetime.now() + timedelta(days=7),
             is_completed=False,
             priority=0,
-            task_type=self.task_type
+            task_type=self.task_type,
         )
         self.task.assignees.set([self.user1, self.user2])
 
@@ -52,7 +48,9 @@ class TaskModelTests(TestCase):
 
     def test_task_fields(self):
         self.assertEqual(self.task.name, "Fix login issue")
-        self.assertEqual(self.task.description, "Users cannot log in due to a server error.")
+        self.assertEqual(
+            self.task.description, "Users cannot log in due to a server error."
+        )
         self.assertEqual(self.task.is_completed, False)
         self.assertEqual(self.task.priority, 0)
         self.assertEqual(self.task.task_type, self.task_type)

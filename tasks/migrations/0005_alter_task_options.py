@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0004_alter_task_priority'),
+        ("tasks", "0004_alter_task_priority"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='task',
-            options={'ordering': ('priority', 'deadline')},
+            name="task",
+            options={"ordering": ("priority", "deadline")},
         ),
     ]

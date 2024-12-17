@@ -10,9 +10,7 @@ from tasks.models import Task, Position, TaskType
 class TaskViewsTests(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
-            username='testuser',
-            password='password123',
-            email='testuser@example.com'
+            username="testuser", password="password123", email="testuser@example.com"
         )
 
         self.task_type = TaskType.objects.create(name="Development")
@@ -23,10 +21,10 @@ class TaskViewsTests(TestCase):
             is_completed=False,
             description="Test task description",
             deadline=now() + timedelta(days=7),
-            priority=0
+            priority=0,
         )
 
-        self.client.login(username='testuser', password='password123')
+        self.client.login(username="testuser", password="password123")
 
     def test_home_view(self):
         response = self.client.get(reverse("tasks:home"))
@@ -55,7 +53,7 @@ class TaskViewsTests(TestCase):
             "description": "New task description",
             "deadline": (now() + timedelta(days=10)).date(),
             "priority": 0,
-            "assignees": self.user.pk
+            "assignees": self.user.pk,
         }
         response = self.client.post(reverse("tasks:task-create"), data)
         self.assertEqual(response.status_code, 302)
@@ -69,7 +67,9 @@ class TaskViewsTests(TestCase):
         self.assertFalse(Task.objects.filter(pk=self.task.pk).exists())
 
     def test_task_change_status_view(self):
-        response = self.client.post(reverse("tasks:task-change-status", args=[self.task.id]))
+        response = self.client.post(
+            reverse("tasks:task-change-status", args=[self.task.id])
+        )
         self.assertEqual(response.status_code, 302)
         self.task.refresh_from_db()
         self.assertTrue(self.task.is_completed)
@@ -84,7 +84,9 @@ class TaskViewsTests(TestCase):
 
 class PositionViewsTestCase(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(username="testuser", password="testpass")
+        self.user = get_user_model().objects.create_user(
+            username="testuser", password="testpass"
+        )
         self.position = Position.objects.create(name="Tester")
         self.client.login(username="testuser", password="testpass")
 
@@ -95,19 +97,25 @@ class PositionViewsTestCase(TestCase):
         self.assertContains(response, position.name)
 
     def test_position_create_view(self):
-        response = self.client.post(reverse("tasks:position-create"), {"name": "Designer"})
+        response = self.client.post(
+            reverse("tasks:position-create"), {"name": "Designer"}
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Position.objects.count(), 2)
 
     def test_position_delete_view(self):
-        response = self.client.post(reverse("tasks:position-delete", args=[self.position.id]))
+        response = self.client.post(
+            reverse("tasks:position-delete", args=[self.position.id])
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Position.objects.count(), 0)
 
 
 class TaskTypeViewsTestCase(TestCase):
     def setUp(self):
-        self.user = get_user_model().objects.create_user(username="testuser", password="testpass")
+        self.user = get_user_model().objects.create_user(
+            username="testuser", password="testpass"
+        )
         self.task_type = TaskType.objects.create(name="QA")
         self.client.login(username="testuser", password="testpass")
 
@@ -118,11 +126,15 @@ class TaskTypeViewsTestCase(TestCase):
         self.assertContains(response, task_type.name)
 
     def test_task_type_create_view(self):
-        response = self.client.post(reverse("tasks:task-type-create"), {"name": "Designer"})
+        response = self.client.post(
+            reverse("tasks:task-type-create"), {"name": "Designer"}
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(TaskType.objects.count(), 2)
 
     def test_task_type_delete_view(self):
-        response = self.client.post(reverse("tasks:task-type-delete", args=[self.task_type.id]))
+        response = self.client.post(
+            reverse("tasks:task-type-delete", args=[self.task_type.id])
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(TaskType.objects.count(), 0)

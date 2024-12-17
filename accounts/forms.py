@@ -9,7 +9,7 @@ class RegisterForm(UserCreationForm):
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'class': 'form-control',
+                "class": "form-control",
                 "placeholder": "Username",
             }
         )
@@ -17,7 +17,7 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
-                'class': 'form-control',
+                "class": "form-control",
                 "placeholder": "Email",
             }
         )
@@ -25,16 +25,16 @@ class RegisterForm(UserCreationForm):
     password1 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control',
-                'placeholder': 'Password',
+                "class": "form-control",
+                "placeholder": "Password",
             }
         )
     )
     password2 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
-                'class': 'form-control',
-                'placeholder': 'Confirm Password',
+                "class": "form-control",
+                "placeholder": "Confirm Password",
             }
         )
     )
@@ -47,18 +47,14 @@ class RegisterForm(UserCreationForm):
 class LoginForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
-            attrs={
-                "placeholder": "Username",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Username", "class": "form-control"}
+        )
+    )
     password = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={
-                "placeholder": "Password",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Password", "class": "form-control"}
+        )
+    )
 
 
 class WorkerUpdateForm(forms.ModelForm):

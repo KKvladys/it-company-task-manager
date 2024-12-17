@@ -13,14 +13,10 @@ class TaskFormTests(TestCase):
     def setUp(self):
         self.task_type = TaskType.objects.create(name="Development")
         self.user1 = User.objects.create_user(
-            username="user1",
-            password="password123",
-            email="user1@example.com"
+            username="user1", password="password123", email="user1@example.com"
         )
         self.user2 = User.objects.create_user(
-            username="user2",
-            password="password123",
-            email="user2@example.com"
+            username="user2", password="password123", email="user2@example.com"
         )
 
         self.valid_data = {
@@ -30,7 +26,7 @@ class TaskFormTests(TestCase):
             "description": "Fix the login bug for all users.",
             "deadline": (now() + timedelta(days=7)).date(),
             "priority": 0,
-            "assignees": [self.user1.pk, self.user2.pk]
+            "assignees": [self.user1.pk, self.user2.pk],
         }
 
     def test_task_form_valid(self):
@@ -60,9 +56,7 @@ class TaskFormTests(TestCase):
 
 class TaskTypeFormTests(TestCase):
     def setUp(self):
-        self.valid_data = {
-            "name": "Bug Fixing"
-        }
+        self.valid_data = {"name": "Bug Fixing"}
 
     def test_task_type_form_valid(self):
         form = TaskTypeForm(data=self.valid_data)
@@ -78,9 +72,7 @@ class TaskTypeFormTests(TestCase):
 
 class PositionFormTests(TestCase):
     def setUp(self):
-        self.valid_data = {
-            "name": "Software Engineer"
-        }
+        self.valid_data = {"name": "Software Engineer"}
 
     def test_position_form_valid(self):
         form = PositionForm(data=self.valid_data)

@@ -30,16 +30,15 @@ class Task(models.Model):
     is_completed = models.BooleanField(default=False)
     priority = models.IntegerField(choices=PRIORITY_CHOICES)
     task_type = models.ForeignKey(
-        TaskType,
-        related_name="tasks",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
+        TaskType, related_name="tasks", on_delete=models.SET_NULL, null=True, blank=True
     )
     assignees = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="tasks")
 
     class Meta:
-        ordering = ("priority", "deadline",)
+        ordering = (
+            "priority",
+            "deadline",
+        )
 
     def __str__(self):
         return self.name

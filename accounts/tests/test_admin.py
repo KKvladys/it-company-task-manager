@@ -9,9 +9,7 @@ class AdminTests(TestCase):
     def setUp(self):
         self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
-            username="admin",
-            password="12345",
-            email="admin_mail@www.com"
+            username="admin", password="12345", email="admin_mail@www.com"
         )
         test_position = Position.objects.create(name="Test")
         self.client.force_login(self.admin_user)
@@ -19,7 +17,7 @@ class AdminTests(TestCase):
             username="worker",
             password="test_password",
             email="test_mail@www.com",
-            position=test_position
+            position=test_position,
         )
 
     def test_driver_position_listed(self):

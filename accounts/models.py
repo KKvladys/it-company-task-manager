@@ -12,7 +12,7 @@ class Worker(AbstractUser):
         related_name="workers",
         on_delete=models.SET_NULL,
         null=True,
-        blank=True
+        blank=True,
     )
 
     class Meta:

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
-from tasks.models import Position, Task, TaskType
+from tasks.models import Task, TaskType
 
 
 class TaskForm(forms.ModelForm):
@@ -31,14 +31,6 @@ class TaskTypeForm(forms.ModelForm):
 
     class Meta:
         model = TaskType
-        fields = ["name"]
-
-
-class PositionForm(forms.ModelForm):
-    name = forms.CharField(label=("Name"))
-
-    class Meta:
-        model = Position
         fields = ["name"]
 
 

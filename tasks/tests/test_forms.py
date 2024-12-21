@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from datetime import timedelta
 from django.utils.timezone import now
 
-from tasks.forms import TaskForm, TaskTypeForm, PositionForm
+from tasks.forms import TaskForm, TaskTypeForm
 from tasks.models import TaskType
 
 User = get_user_model()
@@ -66,21 +66,5 @@ class TaskTypeFormTests(TestCase):
         invalid_data = self.valid_data.copy()
         invalid_data["name"] = ""
         form = TaskTypeForm(data=invalid_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn("name", form.errors)
-
-
-class PositionFormTests(TestCase):
-    def setUp(self):
-        self.valid_data = {"name": "Software Engineer"}
-
-    def test_position_form_valid(self):
-        form = PositionForm(data=self.valid_data)
-        self.assertTrue(form.is_valid())
-
-    def test_position_form_missing_name(self):
-        invalid_data = self.valid_data.copy()
-        invalid_data["name"] = ""
-        form = PositionForm(data=invalid_data)
         self.assertFalse(form.is_valid())
         self.assertIn("name", form.errors)

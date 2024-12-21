@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
-from tasks.models import Position
+from accounts.models import Position
 
 User = get_user_model()
 
@@ -75,3 +75,32 @@ class LoginViewTests(TestCase):
             {"username": "testworker", "password": "wrongpassword"},
         )
         self.assertEqual(response.status_code, 200)
+
+
+class PositionViewsTestCase(TestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(
+            username="testuser", password="testpass"
+        )
+        self.position = Position.objects.create(name="Tester")
+        self.client.login(username="testuser", password="testpass")
+
+    def test_position_list_view(self):
+        position = Position.objects.create(name="Developer")
+        response = self.client.get(reverse("accounts:position-list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, position.name)
+
+    def test_position_create_view(self):
+        response = self.client.post(
+            reverse("accounts:position-create"), {"name": "Designer"}
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Position.objects.count(), 2)
+
+    def test_position_delete_view(self):
+        response = self.client.post(
+            reverse("accounts:position-delete", args=[self.position.id])
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Position.objects.count(), 0)

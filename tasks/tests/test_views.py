@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from datetime import timedelta
 from django.utils.timezone import now
 
-from tasks.models import Task, Position, TaskType
+from tasks.models import Task, TaskType
 
 
 class TaskViewsTests(TestCase):
@@ -80,35 +80,6 @@ class TaskViewsTests(TestCase):
         response = self.client.get(reverse("tasks:task-list-history"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.task.name)
-
-
-class PositionViewsTestCase(TestCase):
-    def setUp(self):
-        self.user = get_user_model().objects.create_user(
-            username="testuser", password="testpass"
-        )
-        self.position = Position.objects.create(name="Tester")
-        self.client.login(username="testuser", password="testpass")
-
-    def test_position_list_view(self):
-        position = Position.objects.create(name="Developer")
-        response = self.client.get(reverse("tasks:position-list"))
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, position.name)
-
-    def test_position_create_view(self):
-        response = self.client.post(
-            reverse("tasks:position-create"), {"name": "Designer"}
-        )
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(Position.objects.count(), 2)
-
-    def test_position_delete_view(self):
-        response = self.client.post(
-            reverse("tasks:position-delete", args=[self.position.id])
-        )
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(Position.objects.count(), 0)
 
 
 class TaskTypeViewsTestCase(TestCase):

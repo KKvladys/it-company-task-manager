@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from datetime import datetime, timedelta
 
-from tasks.models import TaskType, Position, Task
+from tasks.models import TaskType, Task
 
 User = get_user_model()
 
@@ -13,14 +13,6 @@ class TaskTypeModelTests(TestCase):
 
     def test_task_type_str(self):
         self.assertEqual(str(self.task_type), "Development")
-
-
-class PositionModelTests(TestCase):
-    def setUp(self):
-        self.position = Position.objects.create(name="Software Engineer")
-
-    def test_position_str(self):
-        self.assertEqual(str(self.position), "Software Engineer")
 
 
 class TaskModelTests(TestCase):

@@ -1,0 +1,1064 @@
+[
+{
+    "model": "accounts.worker",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$Gxkclwbyx6BvZbO4m2E2nY$NfPJdTFrztHkH5m6GOAiftrl/jvEZEAYtYEvzEA0LBk=",
+        "last_login": "2024-12-13T09:26:47.261Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Admin",
+        "last_name": "Adminov",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-12-02T15:33:00Z",
+        "email": "aaa@ad.cs",
+        "position": 5,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$3v0Kd8JxEWSoasmOKszHYQ$RdeLryZJhNcOML6BFDSbF0KETYq+McL3MbMnUqWt8Oc=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "vladyao",
+        "first_name": "Dima",
+        "last_name": "Tor",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-02T15:35:23Z",
+        "email": "taceke4801@iucake.com",
+        "position": 7,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$MIHxmXtsoaCEeZSctTgckN$dsAp1cGD45t/bBX82ADijdVgT8PJBl/64PKpYQ7MI4U=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "God",
+        "first_name": "Andrey",
+        "last_name": "Shevc",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-03T15:33:48Z",
+        "email": "Andre@ops.com",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$sBIUHPJzByJsKTofKB5GsJ$b3kzrpUhBGu/lkbmDa22xIkhw+plVJlZhnHgadFVLrM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "Tim@",
+        "first_name": "Vla",
+        "last_name": "Ivov",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-03T15:35:09Z",
+        "email": "VVV@www.com",
+        "position": 6,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 5,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "jdoe",
+        "first_name": "John",
+        "last_name": "Doe",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-03T18:26:37.137Z",
+        "email": "jdoe@example.com",
+        "position": 1,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 6,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "BigBu",
+        "first_name": "Hunter",
+        "last_name": "Bush",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-03T18:26:37.137Z",
+        "email": "asmith@example.com",
+        "position": 3,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 7,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "wweeaas",
+        "first_name": "Alice",
+        "last_name": "Big",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-03T18:26:37.137Z",
+        "email": "xczh@example.com",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "accounts.worker",
+    "pk": 8,
+    "fields": {
+        "password": "",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "VArs",
+        "first_name": "Tom",
+        "last_name": "Smith",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-12-03T18:26:37.137Z",
+        "email": "aaaddh@example.com",
+        "position": 2,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 1,
+    "fields": {
+        "name": "Development"
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 2,
+    "fields": {
+        "name": "Testing"
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 3,
+    "fields": {
+        "name": "Deployment"
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 4,
+    "fields": {
+        "name": "Research"
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 5,
+    "fields": {
+        "name": "Documentation"
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 6,
+    "fields": {
+        "name": "Meeting"
+    }
+},
+{
+    "model": "tasks.tasktype",
+    "pk": 7,
+    "fields": {
+        "name": "Design"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 1,
+    "fields": {
+        "name": "Software Engineer"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 2,
+    "fields": {
+        "name": "Data Scientist"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 3,
+    "fields": {
+        "name": "Product Manager"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 4,
+    "fields": {
+        "name": "UI/UX Designer"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 5,
+    "fields": {
+        "name": "DevOps Engineer"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 6,
+    "fields": {
+        "name": "Designer"
+    }
+},
+{
+    "model": "accounts.position",
+    "pk": 7,
+    "fields": {
+        "name": "DevOps"
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 1,
+    "fields": {
+        "name": "Fix critical bug in production",
+        "description": "Resolve the issue causing downtime on the main website.",
+        "deadline": "2024-12-31T23:59:00Z",
+        "is_completed": true,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 2,
+    "fields": {
+        "name": "Develop user authentication module",
+        "description": "Create and integrate login, registration, and password reset features.",
+        "deadline": "2024-12-20T18:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 3,
+    "fields": {
+        "name": "Prepare quarterly report",
+        "description": "Collect data and prepare the Q4 performance report.",
+        "deadline": "2024-12-15T17:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            5,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 4,
+    "fields": {
+        "name": "Design new marketing strategy",
+        "description": "Outline and propose a new strategy for Q1 marketing campaigns.",
+        "deadline": "2025-01-10T12:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 5,
+    "fields": {
+        "name": "Update website UI",
+        "description": "Redesign homepage and user interface for better usability.",
+        "deadline": "2025-02-01T09:00:00Z",
+        "is_completed": true,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 6,
+    "fields": {
+        "name": "Launch new product feature",
+        "description": "Develop and deploy the new analytics dashboard feature.",
+        "deadline": "2025-01-25T14:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 2,
+        "assignees": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 7,
+    "fields": {
+        "name": "Improve SEO for blog posts",
+        "description": "Enhance search engine optimization for the latest blog articles.",
+        "deadline": "2024-12-30T10:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 3,
+        "assignees": [
+            6,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 8,
+    "fields": {
+        "name": "Conduct user research",
+        "description": "Gather feedback from users to improve product usability.",
+        "deadline": "2025-01-15T16:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 9,
+    "fields": {
+        "name": "Implement dark mode",
+        "description": "Add a dark mode option for the app's user interface.",
+        "deadline": "2025-01-05T11:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 1,
+        "assignees": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 10,
+    "fields": {
+        "name": "Fix security vulnerability",
+        "description": "Patch the critical vulnerability found in the payment system.",
+        "deadline": "2024-12-18T20:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 2,
+        "assignees": [
+            1
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 11,
+    "fields": {
+        "name": "Optimize database queries",
+        "description": "Improve the performance of slow database queries in the application.",
+        "deadline": "2024-12-25T15:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            6,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 12,
+    "fields": {
+        "name": "Create user guide documentation",
+        "description": "Write and organize the user manual for the latest product version.",
+        "deadline": "2025-01-30T13:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 13,
+    "fields": {
+        "name": "Setup automated testing framework",
+        "description": "Integrate and configure an automated testing framework for continuous integration.",
+        "deadline": "2025-02-10T17:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 14,
+    "fields": {
+        "name": "Conduct performance testing",
+        "description": "Run load and stress tests on the new application version to ensure stability under heavy load.",
+        "deadline": "2025-01-20T14:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 15,
+    "fields": {
+        "name": "Redesign logo",
+        "description": "Create a new logo design to better reflect the company’s current brand image.",
+        "deadline": "2025-02-05T09:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            6,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 16,
+    "fields": {
+        "name": "Prepare budget report",
+        "description": "Analyze and compile the financial data for the upcoming fiscal year's budget report.",
+        "deadline": "2025-01-15T18:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 17,
+    "fields": {
+        "name": "Deploy new feature to production",
+        "description": "Deploy the newly developed analytics feature to the production environment.",
+        "deadline": "2025-02-01T08:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            3,
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 18,
+    "fields": {
+        "name": "Create FAQ section for website",
+        "description": "Develop a comprehensive FAQ section to address common user questions.",
+        "deadline": "2025-01-28T12:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            6,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 19,
+    "fields": {
+        "name": "Update privacy policy",
+        "description": "Revise and update the privacy policy in compliance with new regulations.",
+        "deadline": "2025-01-10T15:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 20,
+    "fields": {
+        "name": "Organize team-building event",
+        "description": "Plan and organize an online team-building event for the company.",
+        "deadline": "2025-02-15T10:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 21,
+    "fields": {
+        "name": "Conduct security audit",
+        "description": "Perform a thorough security audit of the application to identify vulnerabilities.",
+        "deadline": "2025-02-20T16:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 22,
+    "fields": {
+        "name": "Optimize website load speed",
+        "description": "Analyze and optimize the website’s performance to improve load times.",
+        "deadline": "2025-01-12T13:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 23,
+    "fields": {
+        "name": "Revise product roadmap",
+        "description": "Update the product roadmap with new features for the upcoming quarter.",
+        "deadline": "2025-02-05T09:30:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 24,
+    "fields": {
+        "name": "Prepare marketing campaign",
+        "description": "Develop a comprehensive marketing campaign for the new product launch.",
+        "deadline": "2025-02-25T14:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 25,
+    "fields": {
+        "name": "Migrate database to new server",
+        "description": "Move the database from the current server to a more secure and scalable server.",
+        "deadline": "2025-03-01T17:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 26,
+    "fields": {
+        "name": "Create user onboarding tutorial",
+        "description": "Develop a step-by-step tutorial for new users to get started with the application.",
+        "deadline": "2025-02-10T11:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 27,
+    "fields": {
+        "name": "Launch beta testing program",
+        "description": "Open the beta testing program to selected users and gather feedback on new features.",
+        "deadline": "2025-01-18T09:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 28,
+    "fields": {
+        "name": "Update mobile app for new OS version",
+        "description": "Ensure the mobile app is compatible with the latest iOS and Android operating systems.",
+        "deadline": "2025-02-25T14:30:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 29,
+    "fields": {
+        "name": "Integrate payment gateway",
+        "description": "Integrate a new payment gateway for processing transactions on the website.",
+        "deadline": "2025-03-10T16:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 30,
+    "fields": {
+        "name": "Update user profile page",
+        "description": "Redesign the user profile page to improve user experience and accessibility.",
+        "deadline": "2025-02-18T12:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            3,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 31,
+    "fields": {
+        "name": "Conduct customer feedback survey",
+        "description": "Create and distribute a survey to gather feedback from users about the product's new features.",
+        "deadline": "2025-02-05T11:00:00Z",
+        "is_completed": true,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            1
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 32,
+    "fields": {
+        "name": "Develop new API endpoints",
+        "description": "Create new API endpoints for the upcoming feature set in the next product release.",
+        "deadline": "2025-03-01T09:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 33,
+    "fields": {
+        "name": "Implement dark mode feature",
+        "description": "Add a dark mode option to the app settings, allowing users to switch between light and dark themes.",
+        "deadline": "2025-03-15T13:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            6,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 34,
+    "fields": {
+        "name": "Write product documentation",
+        "description": "Create comprehensive user and developer documentation for the new product features.",
+        "deadline": "2025-02-28T10:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 35,
+    "fields": {
+        "name": "Fix bugs reported by QA",
+        "description": "Address and resolve the bugs reported during the QA testing phase of the latest release.",
+        "deadline": "2025-01-30T17:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            1,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 36,
+    "fields": {
+        "name": "Redesign checkout page",
+        "description": "Revamp the checkout page to improve the user flow and increase conversion rates.",
+        "deadline": "2025-03-05T14:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 37,
+    "fields": {
+        "name": "Add multi-language support",
+        "description": "Implement functionality for supporting multiple languages within the app.",
+        "deadline": "2025-04-01T12:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 38,
+    "fields": {
+        "name": "Refactor database schema",
+        "description": "Refactor and optimize the current database schema for better performance and scalability.",
+        "deadline": "2025-03-18T09:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            1,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 39,
+    "fields": {
+        "name": "Set up continuous integration pipeline",
+        "description": "Configure the CI pipeline to automatically run tests and deploy code to staging on each commit.",
+        "deadline": "2025-03-10T15:30:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 40,
+    "fields": {
+        "name": "Create mobile app landing page",
+        "description": "Design and develop a landing page for the mobile app to attract new users.",
+        "deadline": "2025-04-15T11:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 41,
+    "fields": {
+        "name": "Update privacy policy",
+        "description": "Revise the app’s privacy policy to comply with the latest legal requirements.",
+        "deadline": "2025-04-20T14:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 42,
+    "fields": {
+        "name": "Add social media sharing features",
+        "description": "Implement buttons to share content directly to social media platforms.",
+        "deadline": "2025-04-05T10:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 43,
+    "fields": {
+        "name": "Perform load testing",
+        "description": "Conduct load testing to ensure the system can handle the expected traffic during peak periods.",
+        "deadline": "2025-03-25T16:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            3,
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 44,
+    "fields": {
+        "name": "Improve app security features",
+        "description": "Enhance the app's security features by implementing 2FA and encrypted communication.",
+        "deadline": "2025-04-10T12:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 45,
+    "fields": {
+        "name": "Optimize homepage loading speed",
+        "description": "Improve the load time of the homepage by optimizing images and scripts.",
+        "deadline": "2025-05-01T09:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 46,
+    "fields": {
+        "name": "Create system health monitoring dashboard",
+        "description": "Develop a dashboard for monitoring system performance, uptime, and resource usage.",
+        "deadline": "2025-04-18T17:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 47,
+    "fields": {
+        "name": "Develop API for user data export",
+        "description": "Create an API endpoint that allows users to export their data in CSV format.",
+        "deadline": "2025-05-10T13:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            3,
+            6
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 48,
+    "fields": {
+        "name": "Revamp user registration flow",
+        "description": "Redesign the user registration flow to improve conversion rates and user experience.",
+        "deadline": "2025-05-15T11:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6,
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 49,
+    "fields": {
+        "name": "Implement search functionality",
+        "description": "Add a search bar to the app for users to search through the available content.",
+        "deadline": "2025-05-20T12:00:00Z",
+        "is_completed": false,
+        "priority": 0,
+        "task_type": 1,
+        "assignees": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 50,
+    "fields": {
+        "name": "Fix mobile responsiveness issues",
+        "description": "Fix issues with the app's layout on mobile devices to improve responsiveness.",
+        "deadline": "2025-05-25T14:00:00Z",
+        "is_completed": false,
+        "priority": 1,
+        "task_type": 2,
+        "assignees": [
+            3
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 51,
+    "fields": {
+        "name": "Update app icon and branding",
+        "description": "Redesign the app icon and update the branding to match the new company logo.",
+        "deadline": "2025-06-01T09:00:00Z",
+        "is_completed": false,
+        "priority": 2,
+        "task_type": 3,
+        "assignees": [
+            4
+        ]
+    }
+},
+{
+    "model": "tasks.task",
+    "pk": 52,
+    "fields": {
+        "name": "Conduct user testing for new features",
+        "description": "Organize and conduct user testing for the newly implemented features to gather feedback.",
+        "deadline": "2025-06-10T16:00:00Z",
+        "is_completed": false,
+        "priority": 3,
+        "task_type": 4,
+        "assignees": [
+            6,
+            5
+        ]
+    }
+}
+]

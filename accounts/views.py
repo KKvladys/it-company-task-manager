@@ -1,10 +1,11 @@
 from django.contrib.auth import get_user_model, authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic import FormView
 
-from accounts.forms import RegisterForm, LoginForm, WorkerUpdateForm
+from accounts.forms import RegisterForm, LoginForm, WorkerUpdateForm, PositionForm
+from accounts.models import Position
 
 User = get_user_model()
 
@@ -34,47 +35,55 @@ class WorkerDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = get_user_model()
 
 
-def login_view(request):
-    form = LoginForm(request.POST or None)
-    msg = None
+class LoginView(FormView):
+    template_name = "registration/login.html"
+    form_class = LoginForm
+    success_url = reverse_lazy("home")
 
-    if request.method == "POST":
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect("/")
-            else:
-                msg = "Invalid credentials"
+    def form_valid(self, form):
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(self.request, user)
+            return super().form_valid(form)
         else:
-            msg = "Error validating the form"
+            form.add_error(None, "Invalid credentials")
+            return self.form_invalid(form)
 
-    return render(request, "registration/login.html", {"form": form, "msg": msg})
+
+class RegisterView(FormView):
+    template_name = "registration/register.html"
+    form_class = RegisterForm
+    success_url = reverse_lazy("accounts:login")
+
+    def form_valid(self, form):
+        form.save()
+        username = form.cleaned_data.get("username")
+        raw_password = form.cleaned_data.get("password1")
+        user = authenticate(username=username, password=raw_password)
+        return super().form_valid(form)
 
 
-def register_user(request):
-    msg = None
-    success = False
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get("username")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
-            msg = 'User created - please <a href="/login">login</a>.'
-            success = True
+class PositionListView(LoginRequiredMixin, generic.ListView):
+    model = Position
 
-            return redirect("accounts:login")
-        else:
-            msg = "Form is not valid"
-    else:
-        form = RegisterForm()
 
-    return render(
-        request,
-        "registration/register.html",
-        {"form": form, "msg": msg, "success": success},
-    )
+class PositionCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Position
+    form_class = PositionForm
+    success_url = reverse_lazy("accounts:position-list")
+
+
+class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Position
+    success_url = reverse_lazy("accounts:position-list")
+
+
+class PositionDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Position
+
+
+class PositionUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Position
+    fields = ["name"]

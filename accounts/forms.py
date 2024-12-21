@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
+from accounts.models import Position
+
 User = get_user_model()
 
 
@@ -61,3 +63,11 @@ class WorkerUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ["first_name", "last_name", "position"]
+
+
+class PositionForm(forms.ModelForm):
+    name = forms.CharField(label=("Name"))
+
+    class Meta:
+        model = Position
+        fields = ["name"]

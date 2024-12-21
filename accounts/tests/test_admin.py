@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase, Client
 from django.urls import reverse
 
-from tasks.models import Position
+from accounts.models import Position
 
 
 class AdminTests(TestCase):

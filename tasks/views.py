@@ -1,28 +1,31 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import TemplateView
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
-from django.views import generic
+from django.views import generic, View
 
-from tasks.forms import TaskForm, PositionForm, TaskTypeForm, TaskSearchForm
-from tasks.models import Task, Position, TaskType
+from tasks.forms import TaskForm, TaskTypeForm, TaskSearchForm
+from tasks.models import Task, TaskType
 
 
-@login_required(login_url="accounts/login/")
-def home(request: HttpRequest) -> HttpResponse:
-    tasks = Task.objects.all()
-    num_task_urgent = tasks.filter(priority="0", is_completed=False).count()
-    num_task_high = tasks.filter(priority="1", is_completed=False).count()
-    num_task_medium = tasks.filter(priority="2", is_completed=False).count()
-    num_task_low = tasks.filter(priority="3", is_completed=False).count()
-    context = {
-        "num_task_urgent": num_task_urgent,
-        "num_task_high": num_task_high,
-        "num_task_medium": num_task_medium,
-        "num_task_low": num_task_low,
-    }
-    return render(request, "tasks/home.html", context)
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = "tasks/home.html"
+    login_url = "accounts/login/"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        tasks = Task.objects.all()
+        context["num_task_urgent"] = tasks.filter(
+            priority="0", is_completed=False
+        ).count()
+        context["num_task_high"] = tasks.filter(
+            priority="1", is_completed=False
+        ).count()
+        context["num_task_medium"] = tasks.filter(
+            priority="2", is_completed=False
+        ).count()
+        context["num_task_low"] = tasks.filter(priority="3", is_completed=False).count()
+        return context
 
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
@@ -80,30 +83,6 @@ class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("tasks:task-list")
 
 
-class PositionListView(LoginRequiredMixin, generic.ListView):
-    model = Position
-
-
-class PositionCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Position
-    form_class = PositionForm
-    success_url = reverse_lazy("tasks:position-list")
-
-
-class PositionDeleteView(LoginRequiredMixin, generic.DeleteView):
-    model = Position
-    success_url = reverse_lazy("tasks:position-list")
-
-
-class PositionDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Position
-
-
-class PositionUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Position
-    fields = ["name"]
-
-
 class TaskTypeListView(LoginRequiredMixin, generic.ListView):
     model = TaskType
     context_object_name = "task_type_list"
@@ -135,8 +114,9 @@ class TaskTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = TaskType
 
 
-def change_task_status(request: HttpRequest, pk: int) -> HttpResponse:
-    task = get_object_or_404(Task, pk=pk)
-    task.is_completed = not task.is_completed
-    task.save()
-    return redirect(reverse("tasks:task-list"))
+class ChangeTaskStatusView(View):
+    def post(self, request, pk):
+        task = get_object_or_404(Task, pk=pk)
+        task.is_completed = not task.is_completed
+        task.save()
+        return redirect(reverse("tasks:task-list"))

@@ -1,8 +1,8 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
-from accounts.forms import RegisterForm, LoginForm, WorkerUpdateForm
-from tasks.models import Position
+from accounts.forms import RegisterForm, LoginForm, WorkerUpdateForm, PositionForm
+from accounts.models import Position
 
 User = get_user_model()
 
@@ -88,3 +88,19 @@ class WorkerUpdateFormTests(TestCase):
         )
         self.assertFalse(form.is_valid())
         self.assertIn("position", form.errors)
+
+
+class PositionFormTests(TestCase):
+    def setUp(self):
+        self.valid_data = {"name": "Software Engineer"}
+
+    def test_position_form_valid(self):
+        form = PositionForm(data=self.valid_data)
+        self.assertTrue(form.is_valid())
+
+    def test_position_form_missing_name(self):
+        invalid_data = self.valid_data.copy()
+        invalid_data["name"] = ""
+        form = PositionForm(data=invalid_data)
+        self.assertFalse(form.is_valid())
+        self.assertIn("name", form.errors)

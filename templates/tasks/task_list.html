@@ -1,0 +1,76 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <section class="py-sm-4 py-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row py-lg-7 py-5">
+            <h1 style="font: small-caps bold 40px/1 sans-serif">
+              Task list
+              <a class="btn btn-success btn-create" href="{% url 'tasks:task-create' %}">
+                Create
+              </a>
+            </h1>
+            <form action="" method="get" class="form-inline d-flex align-items-center gap-2">
+              {{ search_form|crispy }}
+              <button type="submit" class="btn btn-secondary">🔎</button>
+            </form>
+            <table class="table table-striped table-hover table-wrapper">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Assignees to</th>
+                <th scope="col">Deadline</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for task in task_list %}
+                <tr>
+
+                  <td>{{ task.id }}</td>
+                  <td>{{ task.name }}</td>
+                  <td>{{ task.task_type }}</td>
+                  <td>
+                    <label
+                        {% if task.priority == 0 %}
+                          class="badge badge-urgent"
+                        {% elif task.priority == 1 %}
+                          class="badge badge-high"
+                        {% elif task.priority == 2 %}
+                          class="badge badge-medium"
+                        {% elif task.priority == 3 %}
+                          class="badge badge-low"
+                        {% endif %}
+                    >
+                      {{ task.get_priority_display }}
+                    </label>
+                  </td>
+                  <td>
+                    {% for worker in  task.assignees.all %}
+                      ({{ worker.first_name }} {{ worker.last_name }})
+                    {% endfor %}
+                  </td>
+                  <td>{{ task.deadline }}</td>
+                  <td><a class="btn-form mb-3 mr-3 btn-secondary" href="{% url 'tasks:task-detail' pk=task.id %}">
+                    Detail
+                  </a></td>
+
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+            {% include "includes/pagination.html" %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
